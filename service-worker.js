@@ -1,4 +1,4 @@
-const CACHE='cheonryugwan-site-v0.3.0';
+const CACHE='cheonryugwan-site-v0.8.3';
 const ASSETS=[
   './','./index.html','./assets/css/common.css','./assets/css/home.css',
   './assets/js/common.js','./pages/archive/','./pages/story/',

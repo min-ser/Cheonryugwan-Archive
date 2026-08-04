@@ -31,3 +31,24 @@
 - [ ] Extract official characters and factions
 - [ ] Generate conflict and foreshadow reports
 - [ ] Convert approved scenes into game JSON
+
+## v0.4.0 — Character Bible & Authoring Foundation
+- [x] Character Bible directory standard
+- [x] Four received character settings structured
+- [x] Main cast placeholders
+- [x] Character index/faction/realm/relationship documents
+- [x] Story outline vs manuscript separation
+- [x] First manuscript template
+- [x] Original source preservation verification
+- [x] Character web page update
+
+## v0.5.2 — Visual Reference Archive
+- [x] User-provided visual references archived
+- [x] Original file integrity hashes recorded
+- [x] Character Bible reference copies linked
+- [x] Visual reference web gallery added
+- [x] Game derivative asset policy documented
+- [ ] Transparent character standing assets
+- [ ] Expression variants
+- [ ] Background art
+- [ ] BGM and SFX integration
