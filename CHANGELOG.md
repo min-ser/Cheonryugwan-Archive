@@ -1,5 +1,41 @@
 # Changelog
 
+## v0.8.4.2 - Unicode Filename Fix
+
+- ZIP 내부에서 CP437로 잘못 해석된 한글 파일명 복구
+- `에셋`, `문서`, `캐릭터`, 캐릭터 이름과 이미지 파일명 정상화
+- JSON·Markdown·HTML에 남은 깨진 한글 경로 문자열 복구
+- UTF-8 파일명 플래그를 사용해 ZIP 재생성
+- 한글 파일명 자동 검수 보고서 추가
+- v0.8.4.1 버튼·JavaScript 수정사항 유지
+
+
+## v0.8.4.2 - Interaction & JavaScript Fix
+
+- `novel-engine.js`에 남아 있던 중복 `catch` 구문 제거
+- 빗소리 정지 함수 `stopRain()` 문법과 예외 처리 수정
+- JavaScript 파싱 실패로 등록되지 않던 게임 버튼 이벤트 복구
+- 새로 시작, 이어하기, 불러오기, 설정 버튼 이벤트 초기화 복구
+- 홈·게임 장식 레이어 클릭 차단 방지 유지
+- 로컬 Service Worker 및 캐시 자동 정리 유지
+- Node.js `--check` 기반 JavaScript 구문 검수 추가
+- HTML 정적 리소스 경로 검수 추가
+
+
+## v0.8.4 - Interaction Stability Fix
+
+- 홈 장식 레이어의 클릭 가로채기 방지
+- 모든 홈 버튼·카드·메뉴의 상호작용 우선순위 명시
+- 게임 장식 레이어의 `pointer-events` 비활성화
+- 게임 제목 메뉴의 클릭 우선순위 보강
+- 누락된 DOM 요소가 있어도 나머지 버튼 이벤트가 등록되도록 방어 처리
+- Live Server에서 이전 Service Worker·천류관 캐시 자동 제거
+- CSS·JS 캐시 무효화 버전 쿼리 추가
+- 모바일 메뉴 열기·닫기 안정화
+- 버튼 상호작용 자동 진단 로그 추가
+- 상호작용 검수 보고서 추가
+
+
 ## v0.8.3 - 서하린 투명 에셋 수정
 
 - 표정 8종 원본과 기존 자동 처리본 보존

@@ -49,3 +49,16 @@
   .portal-card{min-height:210px}.portal-card h2{margin-top:38px}
   .status-panel{align-items:flex-start;flex-direction:column}
 }
+
+
+/* Decorative layers must never intercept navigation or buttons. */
+.hero{isolation:isolate}
+.hero-bg,.hero-bg::before,.hero-bg::after{
+  pointer-events:none !important;
+  user-select:none;
+}
+.hero-bg{z-index:0}
+.hero-content{z-index:2;pointer-events:auto}
+.hero-actions,.hero-actions *{pointer-events:auto}
+.section-grid,.portal-card,.status-panel{position:relative;z-index:2}
+.portal-card,.btn,.text-link{pointer-events:auto !important}

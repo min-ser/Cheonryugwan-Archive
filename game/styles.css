@@ -55,3 +55,21 @@ dialog{width:min(760px,92vw);max-height:80vh;border:1px solid #6a5840;border-rad
   .runtime-status{display:none}
   .character.center{max-width:94vw;max-height:76%}
 }
+
+
+/* v0.8.4 Game Interaction Fix */
+#vn-app{isolation:isolate}
+.rain,.vignette,.background-layer,.character-layer{
+  pointer-events:none !important;
+  user-select:none;
+}
+.title-wrap,.title-wrap .menu,.title-wrap .menu *,
+.topbar,.topbar *, .dialogue-box,.choice-panel,.choice-panel *,
+dialog,dialog *{
+  pointer-events:auto;
+}
+.title-wrap{z-index:10}
+.menu{position:relative;z-index:20}
+.menu button,.menu a{position:relative;z-index:21;cursor:pointer;touch-action:manipulation}
+.topbar{z-index:30}
+.dialogue-box{z-index:25}

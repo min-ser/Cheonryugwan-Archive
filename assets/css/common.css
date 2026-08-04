@@ -79,3 +79,19 @@ main{min-height:calc(100vh - 150px)}
   .site-footer{flex-direction:column}
   .data-row{flex-direction:column}.status{align-self:flex-start}
 }
+
+
+/* v0.8.4 Interaction Stability Fix */
+html,body,#app-shell{position:relative}
+#app-shell{isolation:isolate;min-height:100vh}
+.site-header,.site-header *,.hero-content,.hero-content *,.section-grid,.section-grid *,
+.status-panel,.status-panel *,.site-footer,.site-footer *{
+  pointer-events:auto;
+}
+.site-header{z-index:100}
+main{position:relative;z-index:1}
+a,button,[role="button"]{position:relative;cursor:pointer;touch-action:manipulation}
+a:focus-visible,button:focus-visible{
+  outline:2px solid var(--gold-bright);
+  outline-offset:3px;
+}

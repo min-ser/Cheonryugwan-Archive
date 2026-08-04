@@ -7,8 +7,8 @@
   <meta name="description" content="Cheonryugwan Archive - 천류관 세계관 아카이브와 인터랙티브 노벨 프로젝트">
   <title>Cheonryugwan Archive</title>
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="stylesheet" href="./assets/css/common.css">
-  <link rel="stylesheet" href="./assets/css/home.css">
+  <link rel="stylesheet" href="./assets/css/common.css?v=0.8.4.1">
+  <link rel="stylesheet" href="./assets/css/home.css?v=0.8.4.1">
 </head>
 <body>
   <div id="app-shell">
@@ -74,8 +74,8 @@
       <section class="status-panel">
         <div>
           <p class="eyebrow">CURRENT RELEASE</p>
-          <h2>v0.8.3 — Site Synchronization</h2>
-          <p>캐릭터 갤러리, 실제 게임 엔진 진행 상황, 스토리·에셋 현황과 전체 사이트 페이지를 최신 상태로 동기화했습니다.</p>
+          <h2>v0.8.4.2 — Interaction & JavaScript Fix</h2>
+          <p>홈·게임·아카이브·스토리·캐릭터·로드맵 버튼의 클릭 안정성을 수정하고 로컬 캐시 충돌을 방지했습니다.</p>
         </div>
         <a class="text-link" href="./pages/roadmap/">진행 상황 보기 →</a>
       </section>
@@ -86,11 +86,15 @@
       <div>
         <a href="./pages/legal/">License & Copyright</a>
         <span>·</span>
-        <span>v0.8.3</span>
+        <span>v0.8.4.2</span>
       </div>
     </footer>
   </div>
-  <script src="./assets/js/common.js"></script>
-  <script>if("serviceWorker" in navigator){navigator.serviceWorker.register("./service-worker.js").catch(console.warn);}</script>
+  <script src="./assets/js/common.js?v=0.8.4.1"></script>
+  <script>
+  if ("serviceWorker" in navigator && !["localhost","127.0.0.1","::1"].includes(location.hostname)) {
+    navigator.serviceWorker.register("./service-worker.js?v=0.8.4.1").catch(console.warn);
+  }
+</script>
 </body>
 </html>

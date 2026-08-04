@@ -9,6 +9,12 @@ const AUTO_KEY="cheonryugwan-v060-auto";
 const SLOT_KEY="cheonryugwan-v060-slot-";
 const SETTINGS_KEY="cheonryugwan-v060-settings";
 const $=s=>document.querySelector(s);
+function bindClick(selector, handler){
+  const element=document.querySelector(selector);
+  if(!element){console.warn("[천류관 게임] 요소 없음:",selector);return}
+  element.addEventListener("click",handler);
+}
+
 let chapter, characters, backgrounds, audioManifest;
 let index=0, typing=false, fullText="", typeTimer=null, autoTimer=null;
 let variables={}, log=[], saveMode="save";
@@ -54,9 +60,18 @@ async function startRain(){
   try{await rainAudio.play();setStatus("비 음원 재생 중","ok")}catch(error){console.warn("Rain audio failed",error);setStatus("비 음원 재생 대기","warn")}
 }
 function stopRain(){
-  if(rainAudio){rainAudio.pause();rainAudio.currentTime=0;rainAudio=null}
-  if(rainNode){try{rainNode.stop()}catch{}rainNode.disconnect();rainNode=null;rainGain=null}
-}catch{}rainNode.disconnect();rainNode=null;rainGain=null}}
+  if(rainAudio){
+    rainAudio.pause();
+    rainAudio.currentTime=0;
+    rainAudio=null;
+  }
+  if(rainNode){
+    try{rainNode.stop()}catch(error){console.warn("Legacy rain stop failed",error)}
+    rainNode.disconnect();
+    rainNode=null;
+    rainGain=null;
+  }
+}
 async function playSfx(id){
   if(!id||settings.muted)return;await ensureAudio();
   const path=audioManifest.sfx[id];if(!path)return;
@@ -131,8 +146,8 @@ function openSlots(mode){
     row.appendChild(b);wrap.appendChild(row)}
   $("#save-dialog").showModal()
 }
-$("#new-game").onclick=()=>start(true);$("#continue-game").onclick=()=>start(false);$("#title-load").onclick=()=>openSlots("load");$("#title-settings").onclick=()=>{$("#settings-dialog").showModal()};
-$("#back-title").onclick=()=>{clearInterval(autoTimer);autoTimer=null;showScreen("title")};
+bindClick("#new-game",()=>start(true));bindClick("#continue-game",()=>start(false));bindClick("#title-load",()=>openSlots("load"));bindClick("#title-settings",()=>$("#settings-dialog")?.showModal());
+bindClick("#back-title",()=>{clearInterval(autoTimer);autoTimer=null;showScreen("title")});
 $("#dialogue-box").onclick=next;$("#dialogue-box").onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();next()}};
 document.addEventListener("keydown",e=>{if(novel.classList.contains("active")&&(e.key==="Enter"||e.key==="ArrowRight"))next()});
 $("#auto-btn").onclick=e=>{if(autoTimer){clearInterval(autoTimer);autoTimer=null;e.target.textContent="자동"}else{autoTimer=setInterval(()=>{if(!typing)next()},2800);e.target.textContent="자동 중지"}};
@@ -159,3 +174,8 @@ if("serviceWorker" in navigator && ["localhost","127.0.0.1"].includes(location.h
   navigator.serviceWorker.getRegistrations().then(regs=>regs.forEach(r=>r.unregister()));
   caches.keys().then(keys=>keys.filter(k=>k.includes("cheonryugwan")).forEach(k=>caches.delete(k)));
 }
+
+document.addEventListener("DOMContentLoaded",()=>{
+  document.documentElement.dataset.gameReady="v0.8.4.2";
+  console.info("[천류관 게임] 버튼 이벤트 초기화 완료");
+});
