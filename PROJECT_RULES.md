@@ -1,10 +1,12 @@
 # Project Rules
 
-1. `archive/`와 `story/`가 원본이다.
-2. `story/_INBOX/` 원본은 보존한다.
-3. 게임 데이터만 수정하고 원본을 방치하지 않는다.
-4. 설정 충돌은 임의로 해결하지 않고 목록화한다.
-5. ID는 영문 소문자 kebab-case를 사용한다.
-6. 원본 이미지와 배포 이미지를 분리한다.
-7. 매 버전 README, CHANGELOG, 체크리스트를 갱신한다.
-8. 최신 ZIP은 실행 가능해야 한다.
+1. The original novel is the highest Canon.
+2. `archive/` and `story/` are sources; `game/` is derived output.
+3. Do not overwrite original manuscripts or source ZIP files.
+4. Put new ideas in `ideas/inbox/` first.
+5. Unapproved ideas are not Canon.
+6. Record conflicts in `story/_CONFLICTS/`.
+7. Keep code licensing separate from creative-content rights.
+8. Do not use company/customer confidential assets or accounts.
+9. Separate original images from release-optimized images.
+10. Every release ZIP must remain runnable and preserve originals.

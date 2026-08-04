@@ -1,92 +1,35 @@
 # COPYRIGHT
 
-© 2026 김민서. All Rights Reserved.
+© 2026 Minseo Kim. All Rights Reserved.
 
----
+## Protected creative content
 
-# Cheonryugwan Archive Intellectual Property Policy
+The following are not licensed under the MIT License unless explicitly stated:
 
-The following contents are original intellectual property created for the
-Cheonryugwan Archive project.
+- novels, stories, scenarios, drafts, revisions, scenes, and dialogue;
+- characters, names, biographies, personalities, relationships, abilities,
+  and character designs;
+- world settings, factions, locations, histories, timelines, martial arts,
+  ranks, terminology, records, forbidden books, lore, and foreshadowing;
+- illustrations, concept art, character sheets, portraits, backgrounds,
+  logos, icons, UI artwork, music, sound effects, and audiovisual assets;
+- story, character, and world bibles and creative analysis derived from them.
 
-These materials are **NOT** licensed under the MIT License.
+## Prohibited without written permission
 
-## Protected Contents
+- copying, republishing, redistributing, selling, translating, adapting, or
+  creating derivative works;
+- using protected names, designs, stories, settings, or assets in another
+  game, novel, comic, video, product, or service;
+- commercial use, merchandising, sublicensing, or removal of rights notices;
+- uploading protected content to AI datasets, model-training corpora,
+  fine-tuning pipelines, prompt libraries, or automated generation systems;
+- falsely claiming authorship, ownership, endorsement, or official status.
 
-The following contents are protected by copyright.
+Unauthorized use may result in evidence preservation, takedown requests,
+platform remedies, and appropriate civil or legal action under applicable
+law. This notice is not legal advice.
 
-- Story
-- Scenario
-- Characters
-- Character Design
-- Character Names
-- World Setting
-- Timeline
-- Organizations
-- Martial Arts
-- Records
-- Archive Documents
-- Dialogue
-- Original Terminology
-- Illustrations
-- Concept Art
-- UI Artwork
-- Logos
-
----
-
-## Source Code
-
-Only the software source code contained in this repository is licensed under the MIT License.
-
-Story contents and creative assets are excluded from the MIT License.
-
----
-
-## Prohibited
-
-Without prior written permission from the copyright holder, the following are prohibited.
-
-- Republishing the story
-- Reproducing the scenario
-- Commercial use
-- Redistributing the character settings
-- Creating derivative works based on the story
-- Using illustrations or concept art
-- Publishing modified versions
-- AI dataset training using project assets
-- Uploading project contents to other websites
-
----
-
-## Fan Content
-
-Non-commercial fan art may be permitted in the future under separate guidelines.
-
-Commercial use is strictly prohibited without permission.
-
----
-
-## Legal Notice
-
-Unauthorized reproduction, distribution,
-commercial exploitation,
-or creation of derivative works may constitute copyright infringement.
-
-The copyright holder reserves all rights
-to pursue appropriate legal remedies
-under applicable copyright laws.
-
----
-
-Copyright Holder
-
-김민서
-
-Project
-
-Cheonryugwan Archive
-
-Game Title
-
-천류관 : 흐름의 기록
+Copyright holder: Minseo Kim  
+Project: Cheonryugwan Archive  
+Korean title: 천류관 : 흐름의 기록

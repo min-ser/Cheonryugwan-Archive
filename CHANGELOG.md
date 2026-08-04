@@ -1,9 +1,15 @@
 # Changelog
 
+## v0.2.0 - Development Standard
+
+- Separated MIT code license from protected creative content.
+- Added COPYRIGHT, NOTICE, CONTRIBUTING, and SECURITY policies.
+- Added Canon, naming, story, image, version, Git, idea, and ZIP standards.
+- Added idea inbox/status folders and story analysis/conflict folders.
+- Added ZIP source, release, report, analysis, and backup folders.
+- Added VS Code Live Server recommendations and improved `.gitignore`.
+- Rewrote README as the project operations guide.
+
 ## v0.1.0 - Archive Foundation
 
-- Archive First 구조로 재설계
-- `story/_INBOX/` 추가
-- 파트별 소설·세계관·캐릭터·기록·복선 구조 추가
-- 상세 README 및 템플릿 추가
-- 모바일 웹 게임 기본 골격과 PWA 샘플 추가
+- Created Archive First structure and sample mobile PWA game.

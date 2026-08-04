@@ -1,317 +1,124 @@
 # Cheonryugwan Archive
 
 > **천류관 : 흐름의 기록**  
-> 세계관·캐릭터·소설 원문·기록·복선·게임 데이터를 하나의 저장소에서 관리하는 모바일 우선 인터랙티브 노벨 프로젝트입니다.
+> 원본 소설을 기준으로 세계관, 캐릭터, 기록, 복선, 이미지, 분석 결과와 모바일 인터랙티브 노벨을 함께 관리하는 장기 IP 프로젝트입니다.
 
-현재 버전: **v0.1.0 — Archive Foundation**
+현재 버전: **v0.2.0 — Development Standard**
 
----
+## 목표
 
-## 1. 프로젝트 원칙
+- 원본 소설과 창작 설정을 안전하게 관리
+- 모바일 우선 반응형 웹/PWA 게임 제작
+- 인기가 없어도 엔드투엔드 포트폴리오로 활용
+- 반응이 있으면 상용 배포로 확장
 
-### Archive First Principle
+## 정본 원칙
 
-이 프로젝트에서 원본은 게임 코드가 아니라 **Archive와 Story 문서**입니다.
+**작성자가 보유한 원본 소설이 최상위 Canon입니다.**
 
 ```text
-세계관/캐릭터 설정
-        ↓
-소설 원문 작성
-        ↓
-스토리 분석 및 구조화
-        ↓
-게임용 JSON 변환
-        ↓
-모바일 웹 게임 반영
-        ↓
-테스트 및 배포
+원본 소설 → 승인된 Archive → 게임 데이터 → 웹/PWA 게임
 ```
 
-게임의 대사나 설정을 바꿀 때는 `game/data/`부터 직접 수정하지 않습니다.  
-먼저 `archive/` 또는 `story/`의 원본 문서를 수정한 뒤 게임 데이터에 반영합니다.
+대화 중 추측, 샘플 스토리, 테스트 데이터는 승인 전까지 공식 설정이 아닙니다.
 
----
+## 아이디어 작성 위치
 
-## 2. 내가 작성한 소설은 어디에 넣는가?
+아이디어가 떠오르면 **`ideas/inbox/`에 먼저 작성**합니다. 정본 소설이나 설정집을 즉시 수정하지 않습니다.
 
-기존에 작성한 소설 파일은 우선 아래 폴더에 넣습니다.
+- 채택: `ideas/accepted/`
+- 보류: `ideas/parking/`
+- 폐기: `ideas/rejected/`
+- 주제별: `ideas/story/`, `ideas/characters/`, `ideas/world/`, `ideas/game/` 등
+- 템플릿: `templates/IDEA_TEMPLATE.md`
+
+## 원본 소설 위치
 
 ```text
 story/_INBOX/
 ```
 
-정리가 덜 된 초안, 여러 화가 합쳐진 문서, 메모, 텍스트 파일도 그대로 넣을 수 있습니다.
+분석 결과는 다음에 분리합니다.
 
-권장 형식:
+- `story/_ANALYZED/`
+- `story/_REPORTS/`
+- `story/_CONFLICTS/`
 
-- `.md`
-- `.txt`
-- `.docx`
-- `.pdf`
-- 기존 폴더가 포함된 `.zip`
-- 참고 이미지 `.png`, `.jpg`, `.webp`
+원본은 삭제하거나 덮어쓰지 않습니다.
 
-이미 파트와 장이 정리된 경우에는 다음 위치에 직접 배치합니다.
+## ZIP 보관 위치
 
 ```text
-story/
-├── prologue/
-├── part-01/
-├── part-02/
-├── part-03/
-├── part-04/
-├── side-stories/
-├── drafts/
-└── revisions/
+archives/source-zips/       원본 ZIP
+archives/generated/         릴리즈·보고서·분석 결과
+archives/backups/           로컬·대규모 변경 전 백업
 ```
 
-파일명 권장 형식:
+세부 경로:
 
-```text
-NN-short-title.md
-```
+- 소설 ZIP: `archives/source-zips/story/`
+- 이미지 ZIP: `archives/source-zips/images/`
+- 참고 ZIP: `archives/source-zips/references/`
+- 릴리즈 ZIP: `archives/generated/releases/`
 
-예시:
+대용량 ZIP은 Git에서 제외하고 로컬 백업, 개인 클라우드 또는 GitHub Release를 권장합니다.
 
-```text
-01-the-unread-record.md
-02-seo-harin-enters-the-archive.md
-03-trace-of-jeon-seoyul.md
-```
+## 캐릭터 설정과 이미지
 
----
+- 원본 설정: `archive/characters/<character-id>/`
+- 배포 이미지: `game/assets/images/characters/<character-id>/`
 
-## 3. 전체 ZIP으로 스토리 분석을 요청하는 방법
+## VS Code 실행
 
-1. `story/_INBOX/`에 기존 소설 원문을 넣습니다.
-2. 캐릭터 이미지는 `archive/characters/<character-id>/images/`에 넣습니다.
-3. 세계관 메모는 `archive/world/`에 넣습니다.
-4. 저장소 전체를 ZIP으로 압축합니다.
-5. ZIP을 업로드하고 다음처럼 요청합니다.
+1. 프로젝트 폴더 열기
+2. 추천 확장 `Live Server` 설치
+3. `game/index.html` 우클릭 → **Open with Live Server**
 
-```text
-이 ZIP 전체를 읽고,
-1. 소설 원문 구조 분석
-2. 인물/세력/연표 추출
-3. 설정 충돌 및 미회수 복선 점검
-4. 게임 챕터와 장면 단위로 재구성
-5. 모바일 웹 게임 데이터와 화면에 반영
-6. 수정된 최신 전체 ZIP 생성
-```
+예상 주소: `http://127.0.0.1:5500/game/index.html`
 
-분석 후 반영 위치:
-
-```text
-story/_INBOX/                     원본 보존
-story/prologue, part-*/           정리된 소설
-archive/characters/               인물 설정집
-archive/world/                    세계관·세력·연표
-archive/records/                  극중 기록과 금서
-archive/foreshadow/               복선 추적
-game/data/stories/                게임 실행용 장면 데이터
-game/assets/images/characters/    게임용 최적화 이미지
-```
-
-### 원본 보존 원칙
-
-- `_INBOX`의 원본은 삭제하거나 덮어쓰지 않습니다.
-- 분석·정리본은 별도 파일로 생성합니다.
-- 원문 수정이 필요한 경우 변경 이유를 `story/revisions/`에 기록합니다.
-- 설정과 본문이 충돌하면 임의로 단정하지 않고 충돌 목록을 작성합니다.
-
----
-
-## 4. 디렉터리 구조
-
-```text
-Cheonryugwan-Archive/
-├── README.md
-├── CHANGELOG.md
-├── LICENSE
-├── PROJECT_RULES.md
-├── archive/
-│   ├── world/
-│   ├── characters/
-│   ├── records/
-│   ├── foreshadow/
-│   ├── endings/
-│   └── glossary/
-├── story/
-│   ├── _INBOX/
-│   ├── prologue/
-│   ├── part-01/
-│   ├── part-02/
-│   ├── part-03/
-│   ├── part-04/
-│   ├── side-stories/
-│   ├── drafts/
-│   └── revisions/
-├── game/
-│   ├── index.html
-│   ├── manifest.webmanifest
-│   ├── service-worker.js
-│   ├── assets/
-│   └── data/
-├── docs/
-├── templates/
-└── tools/
-```
-
----
-
-## 5. 캐릭터 설정집과 이미지 추가
-
-```text
-archive/characters/seo-harin/
-├── README.md
-├── profile.md
-├── personality.md
-├── history.md
-├── relationships.md
-├── abilities.md
-├── secrets.md
-└── images/
-    ├── profile.webp
-    ├── full-body.webp
-    ├── concept-sheet.webp
-    └── expressions/
-```
-
-게임 배포용 최적화본은 아래에 둡니다.
-
-```text
-game/assets/images/characters/<character-id>/
-```
-
-`archive/characters/`에는 원본 설정 자료를, `game/assets/`에는 실제 배포용 파일을 둡니다.
-
----
-
-## 6. 소설 작성 형식
-
-```markdown
-# 제1장 — 읽히지 않은 기록
-
-## 메타데이터
-- 시점:
-- 시간:
-- 장소:
-- 등장인물:
-- 관련 기록:
-- 관련 복선:
-- 상태: 초안 / 검토 / 확정
-
-## 본문
-
-기록실은 밤이 깊을수록 더 오래된 냄새를 품었다.
-
-## 장면 메모
-- 배경:
-- BGM:
-- 게임 전환 후보:
-```
-
-본문에 게임 명령어를 강제로 섞지 않습니다. 게임화 메모는 `장면 메모` 또는 별도 분석 문서에서 관리합니다.
-
----
-
-## 7. 게임 반영 과정
-
-```text
-Chapter
- ├── Scene
- │    ├── Narration
- │    ├── Dialogue
- │    ├── Background
- │    ├── Character
- │    ├── Music/SFX
- │    ├── Choice
- │    └── State Change
- └── Unlock
-      ├── Record
-      ├── Character Entry
-      └── Foreshadow Update
-```
-
-게임 데이터는 `game/data/stories/*.json`에 생성합니다.
-
----
-
-## 8. 로컬 실행
-
-프로젝트 루트에서:
+## Git 계정 확인
 
 ```bash
-python -m http.server 8000
+git config user.name
+git config user.email
+git log --format="%h %an <%ae>"
 ```
 
-접속:
+회사 계정, 회사 장비, 회사 AI 계정, 고객 자료를 개인 프로젝트에 사용하지 않습니다.
 
-```text
-http://localhost:8000/game/
-```
+## 라이선스와 저작권
 
----
+- 소프트웨어 코드: MIT License (`LICENSE`)
+- 소설·캐릭터·세계관·대사·이미지·로고 등: All Rights Reserved
+- 상세 정책: `COPYRIGHT.md`
+- 요약 고지: `NOTICE`
 
-## 9. GitHub Pages 배포
+## 주요 문서
 
-```text
-https://<github-id>.github.io/Cheonryugwan-Archive/game/
-```
+- `docs/PROJECT_STANDARD.md`
+- `docs/CANON.md`
+- `docs/NAMING_RULE.md`
+- `docs/STORY_STANDARD.md`
+- `docs/IMAGE_STANDARD.md`
+- `docs/VERSION_POLICY.md`
+- `docs/GIT_WORKFLOW.md`
+- `docs/IDEA_WORKFLOW.md`
+- `docs/ARCHIVE_STORAGE_GUIDE.md`
 
-초기에는 순수 HTML/CSS/JavaScript 구조라 별도 빌드가 필요 없습니다.
+## v0.2.0 완료
 
----
-
-## 10. 현재 개발 체크리스트
-
-### v0.1.0 — Archive Foundation
-
-- [x] Archive First 구조 정의
-- [x] 소설 업로드용 `story/_INBOX/` 생성
-- [x] 파트별 소설 폴더 생성
-- [x] 세계관·캐릭터·기록·복선 폴더 생성
-- [x] 캐릭터 이미지 관리 구조 생성
-- [x] 상세 README 작성
-- [x] 작성 템플릿 제공
-- [x] 모바일 게임 기본 화면 제공
-- [x] JSON 샘플 스토리 제공
-- [x] PWA 기본 파일 제공
-- [ ] 실제 사용자 원문 분석
+- [x] LICENSE / COPYRIGHT / NOTICE 분리
+- [x] Canon 및 프로젝트 표준
+- [x] 아이디어 Inbox와 상태 관리
+- [x] 원고 분석·보고서·충돌 폴더
+- [x] ZIP 원본·릴리즈·백업 구조
+- [x] VS Code Live Server 설정
+- [x] `.gitignore` 보강
+- [x] README 전면 개편
+- [ ] 실제 소설 원본 분석
 - [ ] 실제 캐릭터 이미지 연결
-- [ ] 본편 장면 데이터 변환
-- [ ] 선택지/분기 확장
-- [ ] 기록실·인물도감 완성
+- [ ] 본편 게임 데이터 변환
 
----
+## 다음 버전
 
-## 11. 버전 운영 방식
-
-```text
-v0.1.x  Archive 구조와 작성 표준
-v0.2.x  실제 소설 원문 분석 및 정리
-v0.3.x  장면 변환과 대화 엔진
-v0.4.x  선택지·분기·상태 관리
-v0.5.x  기록실·인물도감
-v0.6.x  캐릭터 이미지·음향
-v0.7.x  PWA·오프라인·모바일 최적화
-v1.0.0  공개 가능한 첫 플레이 데모
-```
-
-모든 버전은 실행 가능한 최신 ZIP 하나로 관리합니다.
-
-# License
-
-Source Code
-
-- MIT License
-
-Creative Contents
-
-- All Rights Reserved
-
-The story, characters, world settings, illustrations,
-records, lore, and other creative assets
-are not licensed under the MIT License.
-
-See COPYRIGHT.md for details.
+**v0.3.0 — Story Intake**: 실제 원고의 파일 목록, 메타데이터, 구조, 인물, 세력, 시간 순서, 충돌 후보를 정리합니다.
