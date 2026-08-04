@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#15120f">
+<title>천류관 : 흐름의 기록</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="stylesheet" href="./assets/css/app.css">
+</head>
+<body>
+<main class="app">
+<section id="menu" class="screen active">
+<div class="mist"></div>
+<div class="title-wrap">
+<p class="eyebrow">CHEONRYUGWAN ARCHIVE</p>
+<h1>천류관</h1>
+<p class="subtitle">흐름의 기록</p>
+<p class="slogan">흐름은 사라지지 않는다.<br>기록만이 남을 뿐.</p>
+</div>
+<nav class="menu">
+<button id="newGame">새 이야기</button>
+<button id="continueGame">이어하기</button>
+<button disabled>기록실 <small>준비 중</small></button>
+<button disabled>인물 설정집 <small>준비 중</small></button>
+</nav>
+<p class="version">Archive Foundation · v0.1.0</p>
+</section>
+<section id="novel" class="screen">
+<header class="topbar"><button id="backMenu">‹</button><span>프롤로그</span><span id="progress">1 / 1</span></header>
+<div class="scene"><div class="dialogue">
+<p id="speaker" class="speaker"></p>
+<p id="text" class="text"></p>
+<div id="choices" class="choices"></div>
+<button id="next" class="next">다음</button>
+</div></div>
+</section>
+</main>
+<script src="./assets/js/app.js" type="module"></script>
+</body>
+</html>
