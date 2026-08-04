@@ -3,7 +3,7 @@
 > **천류관 : 흐름의 기록**  
 > 원본 소설을 기준으로 세계관, 캐릭터, 기록, 복선, 이미지, 분석 결과와 모바일 인터랙티브 노벨을 함께 관리하는 장기 IP 프로젝트입니다.
 
-현재 버전: **v0.2.0 — Development Standard**
+현재 버전: **v0.3.0 — GitHub Pages Foundation**
 
 ## 목표
 
@@ -122,3 +122,65 @@ git log --format="%h %an <%ae>"
 ## 다음 버전
 
 **v0.3.0 — Story Intake**: 실제 원고의 파일 목록, 메타데이터, 구조, 인물, 세력, 시간 순서, 충돌 후보를 정리합니다.
+
+
+## GitHub Pages 웹사이트
+
+v0.3.0부터 저장소 루트의 `index.html`이 프로젝트 랜딩 페이지로 동작합니다.
+
+```text
+/
+├── index.html                 프로젝트 메인
+├── game/                      실제 인터랙티브 노벨
+├── pages/archive/             Archive 안내
+├── pages/story/               Story Intake 안내
+├── pages/characters/          Character Archive
+├── pages/world/               World Bible
+├── pages/roadmap/             개발 진행 상황
+└── pages/about/               프로젝트 소개
+```
+
+GitHub Pages를 저장소의 `main` 브랜치 `/root`로 설정하면 다음 형태로 접속합니다.
+
+```text
+https://<github-id>.github.io/Cheonryugwan-Archive/
+```
+
+게임 직접 주소:
+
+```text
+https://<github-id>.github.io/Cheonryugwan-Archive/game/
+```
+
+### GitBlog/Portfolio 저장소에 복사하는 경우
+
+다음 폴더 전체를 원하는 경로에 복사하면 됩니다.
+
+```text
+Portfolio/Project/Cheonryugwan-Archive/
+```
+
+예상 주소:
+
+```text
+https://<github-id>.github.io/Portfolio/Project/Cheonryugwan-Archive/
+```
+
+모든 내부 링크는 상대 경로를 사용하므로 동일한 폴더 구조를 유지해야 합니다.
+
+## v0.3.0 완료 체크리스트
+
+- [x] GitHub Pages용 루트 랜딩 페이지
+- [x] 모바일 반응형 공통 Header/Footer
+- [x] Home, Game, Archive, Story, Characters, World, Roadmap, About 내비게이션
+- [x] Story Intake 상태 페이지
+- [x] Archive 안내 페이지
+- [x] Character Archive 플레이스홀더
+- [x] World Bible 플레이스홀더
+- [x] 개발 로드맵 페이지
+- [x] License/Copyright 안내 페이지
+- [x] 루트 PWA Manifest 및 Service Worker
+- [x] GitBlog/Portfolio 복사 배포 가이드
+- [ ] 실제 원본 소설 분석
+- [ ] 실제 캐릭터 이미지 연결
+- [ ] 실제 Archive 데이터 공개
