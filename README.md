@@ -299,3 +299,19 @@ v1.0.0  공개 가능한 첫 플레이 데모
 ```
 
 모든 버전은 실행 가능한 최신 ZIP 하나로 관리합니다.
+
+# License
+
+Source Code
+
+- MIT License
+
+Creative Contents
+
+- All Rights Reserved
+
+The story, characters, world settings, illustrations,
+records, lore, and other creative assets
+are not licensed under the MIT License.
+
+See COPYRIGHT.md for details.
